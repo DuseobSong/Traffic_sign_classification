@@ -1,0 +1,44 @@
+Path,ClassId,ShapeId,ColorId,SignId,SignName
+Meta/0.png,0,1,0,3.29,Speed_limit (20 km/h)
+Meta/1.png,1,1,0,3.29,Speed_limit (30 km/h)
+Meta/2.png,2,1,0,3.29,Speed_limit (50 km/h)
+Meta/3.png,3,1,0,3.29,Speed_limit (60 km/h)
+Meta/4.png,4,1,0,3.29,Speed_limit (70 km/h)
+Meta/5.png,5,1,0,3.29,Speed_limit (80 km/h)
+Meta/6.png,6,1,3,3.3,End_of_speed_limit (80 km/h)
+Meta/7.png,7,1,0,3.29,Speed_limit (100 km/h)
+Meta/8.png,8,1,0,3.29,Speed_limit (120 km/h)
+Meta/9.png,9,1,0,3.25,No_passing
+Meta/10.png,10,1,0,3.27,No_passing_for_commercial_vehicle
+Meta/11.png,11,0,0,1.22,Right_of_way_intersection
+Meta/12.png,12,2,2,2.3,Priority_road
+Meta/13.png,13,4,0,2.1,Yield
+Meta/14.png,14,3,0,2.2,Stop
+Meta/15.png,15,1,0,3.1,No_vehicles
+Meta/16.png,16,1,0,3.3,Prohibition_for_commercial_vehicle
+Meta/17.png,17,1,0,3.21,No_entry
+Meta/18.png,18,0,0,1.39,Caution
+Meta/19.png,19,0,0,1.2,Dangerous_curve_left
+Meta/20.png,20,0,0,1.1,Dangerous_curve_right
+Meta/21.png,21,0,0,1.3.2,Double_curve_left_right
+Meta/22.png,22,0,0,1.1,Uneven_road
+Meta/23.png,23,0,0,1.13,Slippery_road
+Meta/24.png,24,0,0,1.5.2,Bottleneck_left
+Meta/25.png,25,0,0,1.37,Construction_site
+Meta/26.png,26,0,0,1.24,Traffic_signal
+Meta/27.png,27,0,0,1.32,Pedestrians
+Meta/28.png,28,0,0,1.33,Children_crossing
+Meta/29.png,29,0,0,1.34,Bicycle_crossing
+Meta/30.png,30,0,0,None,Snow/Ice
+Meta/31.png,31,0,0,1.36,Wild_animal_crossing
+Meta/32.png,32,1,3,3.42,End_of_speed_limit
+Meta/33.png,33,1,1,4.2,Turn_right
+Meta/34.png,34,1,1,4.3,Turn_left
+Meta/35.png,35,1,1,4.1,Go_straight
+Meta/36.png,36,1,1,4.4,Straight_or_right
+Meta/37.png,37,1,1,4.5,Straight_or_left
+Meta/38.png,38,1,1,4.7,Keep_right
+Meta/39.png,39,1,1,4.8,keep_left
+Meta/40.png,40,1,1,4.1,Roundabout_mendatory
+Meta/41.png,41,1,3,3.26,End_of_no_passing
+Meta/42.png,42,1,3,3.28,End_of_no_passing_for_commercial_vehicle
