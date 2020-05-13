@@ -1,0 +1,9 @@
+In this project, following dataset is used:
+	Dataset: German Traffic Sign Recognition Benchmark (GTRSB) - Institute fuer NEUROINFORMATIK
+
+The training and test images are available on 
+	http://benchmark.ini.rub.de/ 
+or 
+	https://www.kaggle.com/meowmeowmeowmeowmeow/gtsrb-german-traffic-sign/data
+.
+	
