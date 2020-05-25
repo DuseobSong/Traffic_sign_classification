@@ -1,0 +1,3 @@
+0,1,2,3,4
+No_of_test_samples,No_of_label_classes,No_of_correct_predictions,No_of_incorrect_predictions,Accuracy
+12630,43,12094,536,95.75613618368963

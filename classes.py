@@ -94,7 +94,7 @@ functions:
 class Classifier:
     def __init__(self):
         # Hyper parameters
-        self.NUM_EPOCHS = 32
+        self.NUM_EPOCHS = 30
         self.INIT_LR = 1e-3
         self.BATCH_SIZE = 4
         self.optimizer = Adam(lr = self.INIT_LR, decay = self.INIT_LR / (self.NUM_EPOCHS * 0.5))
@@ -123,16 +123,16 @@ class Classifier:
         model.add(MaxPooling2D(pool_size = (2,2)))
         
         # first order feature map size: (16, 16, 3)
-        model.add(Conv2D(16, (3,3), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
+        model.add(Conv2D(16, (5,5), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
         model.add(BatchNormalization())
-        model.add(Conv2D(16, (3,3), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
+        model.add(Conv2D(16, (5,5), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
         model.add(BatchNormalization())
         model.add(MaxPooling2D(pool_size = (2,2)))
         
         # second order feature map size: (8, 8, 3)
-        model.add(Conv2D(32, (3,3), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
+        model.add(Conv2D(32, (5,5), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
         model.add(BatchNormalization())
-        model.add(Conv2D(32, (3,3), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
+        model.add(Conv2D(32, (5,5), padding = 'same', activation = 'relu', kernel_initializer = 'he_normal'))
         model.add(BatchNormalization())
         model.add(MaxPooling2D(pool_size = (2,2)))
         
@@ -142,10 +142,10 @@ class Classifier:
         model.add(BatchNormalization())
         model.add(Dropout(0.5))
         
-        # second set of feature components
-        model.add(Dense(128, activation = 'relu', kernel_initializer = 'he_normal'))
-        model.add(BatchNormalization())
-        model.add(Dropout(0.5))
+        # # second set of feature components
+        # model.add(Dense(128, activation = 'relu', kernel_initializer = 'he_normal'))
+        # model.add(BatchNormalization())
+        # model.add(Dropout(0.5))
         
         # classification
         model.add(Dense(self.n_classes, activation = 'softmax'))
@@ -159,7 +159,10 @@ class Classifier:
     def train(self, model, train_data, valid_data, load_model = False):
         if load_model == True:
             model = load_model(self.model_path + 'tsc.h5')
-            
+        
+        (trainX, trainY) = train_data
+        (validX, validY) = valid_data
+        
         augmentor = ImageDataGenerator(rotation_range = 10,
                                         zoom_range = 0.15,
                                         width_shift_range = 0.1,
@@ -169,8 +172,6 @@ class Classifier:
                                         vertical_flip = False,
                                         fill_mode = 'nearest'
                                         )
-        (trainX, trainY) = train_data
-        (validX, validY) = valid_data
         
         history = model.fit_generator(augmentor.flow(trainX, trainY, batch_size = self.BATCH_SIZE),
                                       validation_data = (validX, validY),
@@ -207,7 +208,8 @@ class Classifier:
         if save_img == True:
             
             result = cv2.resize(result, (256,256))
-            cv2.putText(result, pred_label + ' (' + ans + ')', (5, 15), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0,0,255), 2)
+            cv2.rectangle(result, (0,0), (256, 20), (255,255,255), -1)
+            cv2.putText(result, pred_label + ' (' + ans + ')', (5, 15), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0,0,0), 2)
             
             if not os.path.exists('./prediction/'):
                 os.makedir('./prediction/')

@@ -1,0 +1,44 @@
+Label_name,No_of_samples,Accuracy
+Speed_limit (20 km/h),60,88.33333333333333
+Speed_limit (30 km/h),720,97.5
+Speed_limit (50 km/h),750,98.4
+Speed_limit (60 km/h),450,90.0
+Speed_limit (70 km/h),660,96.96969696969697
+Speed_limit (80 km/h),630,96.5079365079365
+End_of_speed_limit (80 km/h),150,96.0
+Speed_limit (100 km/h),450,95.77777777777777
+Speed_limit (120 km/h),450,98.0
+No_passing,480,97.5
+No_passing_for_commercial_vehicle,660,99.69696969696969
+Right_of_way_intersection,420,92.85714285714286
+Priority_road,690,96.23188405797102
+Yield,720,99.44444444444444
+Stop,270,99.62962962962963
+No_vehicles,210,99.52380952380952
+Prohibition_for_commercial_vehicle,150,100.0
+No_entry,360,100.0
+Caution,390,73.58974358974359
+Dangerous_curve_left,60,81.66666666666667
+Dangerous_curve_right,90,96.66666666666667
+Double_curve_left_right,90,72.22222222222221
+Uneven_road,120,95.0
+Slippery_road,150,98.0
+Bottleneck_left,90,78.88888888888889
+Construction_site,480,97.08333333333333
+Traffic_signal,180,94.44444444444444
+Pedestrians,60,95.0
+Children_crossing,150,93.33333333333333
+Bicycle_crossing,90,95.55555555555556
+Snow/Ice,150,69.33333333333334
+Wild_animal_crossing,270,97.77777777777777
+End_of_speed_limit,60,98.33333333333333
+Turn_right,210,100.0
+Turn_left,120,100.0
+Go_straight,390,97.6923076923077
+Straight_or_right,120,100.0
+Straight_or_left,60,96.66666666666667
+Keep_right,690,99.71014492753623
+keep_left,90,96.66666666666667
+Roundabout_mendatory,90,96.66666666666667
+End_of_no_passing,60,91.66666666666666
+End_of_no_passing_for_commercial_vehicle,90,84.44444444444444
