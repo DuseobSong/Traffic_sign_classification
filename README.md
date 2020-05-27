@@ -12,8 +12,8 @@ The goalof this project is to develop an CNN-model for traffic sign classificati
 >* [predict.py](https://github.com/DuseobSong/Traffic_sign_classification/blob/master/predict.py): trained model classifies the traffic sign images and calculate accuracies for each traffic sign
 
 ## Development Environment
-> OS: Windows 10 (x64), Python 3.7, OpenCV 4.2.0, Keras (backend: Tensorflow 2.2.0)
->   Dataset: Dataset: GTSRB – German Traffic Sign Recognition Benchmark [benchmark.ini.rub.de](benchmark.ini.rub.de)
+> OS: Windows 10 (x64), Python 3.7, OpenCV 4.2.0, Keras (backend: Tensorflow 2.2.0)  
+> Dataset: Dataset: GTSRB – German Traffic Sign Recognition Benchmark [benchmark.ini.rub.de](benchmark.ini.rub.de)
 
 ## Structure
 >
