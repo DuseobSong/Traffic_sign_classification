@@ -18,55 +18,55 @@ SAVE_PATH = './Accuracy/'
 if not os.path.exists(SAVE_PATH):
     os.makedir(SAVE_PATH)
     
-# model_load = True
+model_load = True
 
-# net = Classifier()
-# net.load_labels()
+net = Classifier()
+net.load_labels()
 
-# for i in range(len(net.label_names)):
-#     globals()['class_{}'.format(i)] = []
-#     globals()['class_{}_img'.format(i)] = []
-#     globals()['class_{}_true'.format(i)] = []
-#     globals()['class_{}_pred'.format(i)] = []
+for i in range(len(net.label_names)):
+    globals()['class_{}'.format(i)] = []
+    globals()['class_{}_img'.format(i)] = []
+    globals()['class_{}_true'.format(i)] = []
+    globals()['class_{}_pred'.format(i)] = []
 
-# total = 0
-# cor = 0 
-# inc = 0
+total = 0
+cor = 0 
+inc = 0
 
-# if model_load == True:
-#     model = load_model('./model/tsc.h5')
+if model_load == True:
+    model = load_model('./model/tsc.h5')
 
-# csv_data = open('./dataset/test.csv').read().strip().split('\n')[1:]
+csv_data = open('./dataset/test.csv').read().strip().split('\n')[1:]
 
-# true_labels = [row.split(',')[-2] for row in csv_data]
-# true_labels = np.array(true_labels).astype(np.int)
-# img_paths = [row.split(',')[-1] for row in csv_data]
-# img_names = [img_path.split('/')[-1] for img_path in img_paths]
+true_labels = [row.split(',')[-2] for row in csv_data]
+true_labels = np.array(true_labels).astype(np.int)
+img_paths = [row.split(',')[-1] for row in csv_data]
+img_names = [img_path.split('/')[-1] for img_path in img_paths]
 
-# for i in range(len(img_paths)):
-#     total += 1
+for i in range(len(img_paths)):
+    total += 1
     
-#     img_path = './dataset/' + img_paths[i]
-#     img_name = img_names[i]
-#     true_label = true_labels[i]
+    img_path = './dataset/' + img_paths[i]
+    img_name = img_names[i]
+    true_label = true_labels[i]
     
-#     eval('class_{}_img'.format(true_label)).append(img_name)
+    eval('class_{}_img'.format(true_label)).append(img_name)
     
-#     ans, pred_label = net.predict(model, img_path, true_label, save_img = True)
+    ans, pred_label = net.predict(model, img_path, true_label, save_img = True)
     
-#     eval('class_{}_true'.format(true_label)).append(net.label_names[true_label])
-#     eval('class_{}_pred'.format(true_label)).append(pred_label)
+    eval('class_{}_true'.format(true_label)).append(net.label_names[true_label])
+    eval('class_{}_pred'.format(true_label)).append(pred_label)
     
-#     if net.label_names[true_label] == pred_label:
-#         eval('class_{}'.format(true_label)).append(1)
-#     elif net.label_names[true_label] != pred_label:
-#         eval('class_{}'.format(true_label)).append(0)
+    if net.label_names[true_label] == pred_label:
+        eval('class_{}'.format(true_label)).append(1)
+    elif net.label_names[true_label] != pred_label:
+        eval('class_{}'.format(true_label)).append(0)
     
-#     if ans == 'correct':
-#         cor += 1
-#     elif ans == 'incorrect':
-#         inc += 1
-# accuracy = cor/total * 100    
+    if ans == 'correct':
+        cor += 1
+    elif ans == 'incorrect':
+        inc += 1
+accuracy = cor/total * 100    
 class_accuracy = []
 samples = []
 
