@@ -40,7 +40,7 @@ These modified images and their true labels are devided into train- and validatt
 >> <p align = "center"><img src = https://github.com/DuseobSong/Traffic_sign_classification/blob/master/Accuracy/accuracy.png></p>
 >>  
 >  
-> *** GUI *** (Uppdated: 2020.06.14)  
+> ### GUI (Uppdated: 2020.06.14)  
 >><p align = "center"><img src = "https://github.com/DuseobSong/Traffic_sign_classification/blob/master/GUI_IMG/GUI.png"></p>  
 >>  
 >> ***Model path***: 
