@@ -43,15 +43,15 @@ These modified images and their true labels are devided into train- and validati
 > ### GUI (Uppdated: 2020.06.14)  
 >><p align = "center"><img src = "https://github.com/DuseobSong/Traffic_sign_classification/blob/master/GUI_IMG/GUI.png"></p>  
 >>  
->> ***Model path***: 
->> ***Meta data***: 
->> ***Meta data (inputs)***:
->> ***Image path***: 
->> ***Image***: 
->> ***Input Image***:
->> ***Prediction***:
->> ***True Label***:
->> ***Prediction***:
+>> ***Model path***:  
+>> ***Meta data***:  
+>> ***Meta data (inputs)***:  
+>> ***Image path***:  
+>> ***Image***:  
+>> ***Input Image***:  
+>> ***Prediction***:  
+>> ***True Label***:  
+>> ***Prediction***:  
 >>  
 >> <p align = "center"><img src = "https://github.com/DuseobSong/Traffic_sign_classification/blob/master/GUI_IMG/log_history.png"></p>  
 >>  
