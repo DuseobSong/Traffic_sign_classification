@@ -21,8 +21,6 @@ class LogHistory(QMainWindow):
         super().__init__()
         self.parent = parent
         self.setupUI()
-        
-        self.data = None
     
     def setupUI(self):
         self.setGeometry(200, 100, 600, 800)
@@ -94,7 +92,192 @@ class LogHistory(QMainWindow):
             self.table.setItem(idx, 0, d)
             self.table.setItem(idx, 1, t)
             self.table.setItem(idx, 2, m)
-
+class InfoWindow(QMainWindow):
+    def __init__(self, parent = None):
+        super().__init__()
+        self.parent = parent
+        self.setupUI()
+    
+    def setupUI(self):
+        self.setGeometry(300, 100, 700, 600)
+        self.setWindowTitle('About TSC')
+        
+        # menu bar
+        exitAction = QAction('Exit', self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.triggered.connect(lambda:self.close())
+        
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(exitAction)
+        
+        mainTitleSt = (QtGui.QFont('Arial', 16, QtGui.QFont.Bold))
+        subTitleSt  = (QtGui.QFont('Arial', 12, QtGui.QFont.Bold))
+        catSt = (QtGui.QFont('Arial', 10, QtGui.QFont.Bold))
+        msgSt = (QtGui.QFont('Arial', 10))
+        
+        stSheet = 'background-color: white; border: 1px solid black'
+        
+        # title
+        titleY = 40 # 40
+        labelTitle = QLabel('Traffic Sign Classifier v1.0', self)
+        labelTitle.setGeometry(40, titleY, 620, 40)
+        # labelTitle.setStyleSheet(stSheet)
+        labelTitle.setFont(mainTitleSt)
+        labelTitle.setAlignment(Qt.AlignCenter)
+        
+        gitlink = "<a href=\"https://github.com/DuseobSong/Traffic_sign_classification\">Git-hub repository</a>"
+        gitLabel = QLabel(gitlink, self)
+        gitLabel.setGeometry(40, titleY + 50, 200, 20)
+        # gitLabel.setStyleSheet(stSheet)
+        gitLabel.setOpenExternalLinks(True)
+        # dataset
+        dataY = titleY + 80 # 120
+        # labelDataTitle = QLabel('About Dataset', self)
+        # labelDataTitle.setGeometry(40, dataY, 160, 30)
+        # labelDataTitle.setStyleSheet(stSheet)
+        # labelDataTitle.setFont(subTitleSt)
+        # labelDataTitle.setAlignment(Qt.AlignCenter)
+        
+        labelData = QLabel('Dataset: ', self)
+        labelData.setGeometry(40, dataY, 100, 20)
+        # labelData.setStyleSheet(stSheet)
+        labelData.setFont(catSt)
+        
+        labelDataName = QLabel('German Traffic Sign Recognition Benchmark (GTSRB)', self)
+        labelDataName.setGeometry(160, dataY, 500, 20)
+        # labelDataName.setStyleSheet(stSheet)
+        labelDataName.setFont(msgSt)
+        
+        datasetMsg = 'Metadata(csv-file), Training- and Test-dataset are included.'
+        labelDataInfo = QLabel(datasetMsg, self)
+        labelDataInfo.setGeometry(160, dataY + 20, 500, 20)
+        # labelDataInfo.setStyleSheet(stSheet)
+        labelDataInfo.setFont(msgSt)
+        
+        link = "<a href=\"http://benchmark.ini.rub.de/\">benchmark.ini.rub.de</a>"
+        labelDataLink = QLabel(self)
+        labelDataLink.setGeometry(160, dataY + 40, 500, 20)
+        # labelDataLink.setStyleSheet(stSheet)
+        labelDataLink.setText(link)
+        labelDataLink.setOpenExternalLinks(True)
+        
+        # # model
+        modelY = dataY + 60 # 180
+        labelModelTitle = QLabel('1. Model', self)
+        labelModelTitle.setGeometry(40, modelY, 160, 30)
+        # labelModelTitle.setStyleSheet(stSheet)
+        labelModelTitle.setFont(subTitleSt)
+        
+        labelModelStructureCat = QLabel('Structure: ', self)
+        labelModelStructureCat.setGeometry(40, modelY + 30, 100, 20)
+        labelModelStructureCat.setFont(catSt)
+        # labelModelStructureCat.setStyleSheet(stSheet)
+        
+        msg = 'Please visit my github-repository'
+        labelModelStructureMsg = QLabel(msg, self)
+        labelModelStructureMsg.setGeometry(160, modelY + 30, 500, 20)
+        labelModelStructureMsg.setFont(msgSt)
+        # labelModelStructureMsg.setStyleSheet(stSheet)
+        
+        labelModelInCat = QLabel('Input: ', self)
+        labelModelInCat.setGeometry(40, modelY + 50, 100, 20)
+        labelModelInCat.setFont(catSt)
+        # labelModelInCat.setStyleSheet(stSheet)
+        
+        msg = "Image with '.jpg', '.jpeg' or '.png' extension."
+        labelModelInMsg = QLabel(msg, self)
+        labelModelInMsg.setGeometry(160, modelY + 50, 500, 20)
+        labelModelInMsg.setFont(msgSt)
+        # labelModelInMsg.setStyleSheet(stSheet)
+        
+        labelModelOutCat = QLabel('Output: ', self)
+        labelModelOutCat.setGeometry(40, modelY + 70, 100, 20)
+        labelModelOutCat.setFont(catSt)
+        # labelModelOutCat.setStyleSheet(stSheet)
+        
+        msg = 'Class-id of 43 different type of traffic signs'
+        labelModelOutMsg = QLabel(msg, self)
+        labelModelOutMsg.setGeometry(160, modelY + 70, 500, 20)
+        labelModelOutMsg.setFont(msgSt)
+        # labelModelOutMsg.setStyleSheet(stSheet)
+        
+        # # metadata
+        metaY = modelY + 110 # 290
+        labelMetadataTitle = QLabel('2. Metadata', self)
+        labelMetadataTitle.setGeometry(40, metaY, 150, 30)
+        labelMetadataTitle.setFont(subTitleSt)
+        # labelMetadataTitle.setStyleSheet(stSheet)
+        
+        labelMetadataCat = QLabel('Meta.csv: ', self)
+        labelMetadataCat.setGeometry(40, metaY + 30, 100, 20)
+        labelMetadataCat.setFont(catSt)
+        # labelMetadataCat.setStyleSheet(stSheet)
+        
+        msg = 'Contains class-id and name of signs and their image path'
+        labelMetadataMsg = QLabel(msg, self)
+        labelMetadataMsg.setGeometry(160, metaY + 30, 500, 20)
+        labelMetadataMsg.setFont(msgSt)
+        # labelMetadataMsg.setStyleSheet(stSheet)
+        
+        labelMetaTrCat = QLabel('Train.csv: ', self)
+        labelMetaTrCat.setGeometry(40, metaY + 50, 100, 20)
+        labelMetaTrCat.setFont(catSt)
+        # labelMetaTrCat.setStyleSheet(stSheet)
+        
+        msg = 'Contains class-id(True label), size and path of input images.'
+        labelMetaTrMsg = QLabel(msg, self)
+        labelMetaTrMsg.setGeometry(160, metaY + 50, 500, 20)
+        labelMetaTrMsg.setFont(msgSt)
+        # labelMetaTrMsg.setStyleSheet(stSheet)
+        
+        labelMetaTsCat = QLabel('Test.csv: ', self)
+        labelMetaTsCat.setGeometry(40, metaY + 70, 100, 20)
+        labelMetaTsCat.setFont(catSt)
+        # labelMetaTsCat.setStyleSheet(stSheet)
+        
+        msg = 'Contains class-id(True label), size and path of input images.'
+        labelMetaTrMsg = QLabel(msg, self)
+        labelMetaTrMsg.setGeometry(160, metaY + 70, 500, 20)
+        labelMetaTrMsg.setFont(msgSt)
+        # labelMetaTrMsg.setStyleSheet(stSheet)
+        
+        # # log history: shows info- and error message by following steps:
+        logY = metaY + 110 
+        labelLogTitle = QLabel('3. Log history', self)
+        labelLogTitle.setGeometry(40, logY, 150, 30)
+        labelLogTitle.setFont(subTitleSt)
+        # labelLogTitle.setStyleSheet(stSheet)
+        
+        labelLogHistCat = QLabel('Review logs: ', self)
+        labelLogHistCat.setGeometry(40, logY + 30, 110, 20)
+        labelLogHistCat.setFont(catSt)
+        # labelLogHistCat.setStyleSheet(stSheet)
+        
+        msg = 'Error- and info-messages are recorded. (Ctrl+Q))'
+        labelLogHistMsg = QLabel(msg, self)
+        labelLogHistMsg.setGeometry(160, logY + 30, 500, 20)
+        labelLogHistMsg.setFont(msgSt)
+        # labelLogHistMsg.setStyleSheet(stSheet)
+        
+        labelLogSaveCat = QLabel('Save log: ', self)
+        labelLogSaveCat.setGeometry(40, logY + 50, 110, 20)
+        labelLogSaveCat.setFont(catSt)
+        # labelLogSaveCat.setStyleSheet(stSheet)
+        
+        msg = 'Saves log history as a csv-file. (Ctrl+L)'
+        labelLogSaveMsg = QLabel(msg, self)
+        labelLogSaveMsg.setGeometry(160, logY + 50, 500, 20)
+        labelLogSaveMsg.setFont(msgSt)
+        # labelLogSaveMsg.setStyleSheet(stSheet)
+        
+        msg = 'File name format (date and time): YYYYMMDDhhmmss_log.csv'
+        labelLogSaveMsg2 = QLabel(msg, self)
+        labelLogSaveMsg2.setGeometry(160, logY + 70, 500, 20)
+        labelLogSaveMsg2.setFont(msgSt)
+        # labelLogSaveMsg2.setStyleSheet(stSheet)
+    
+    
 class Classifier(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -179,7 +362,7 @@ class Classifier(QMainWindow):
         helpAction = QAction('Information', self)
         helpAction.setShortcut('F1')
         helpAction.setStatusTip('About TSC')
-        # helpAction.triggered.connect(qApp.exit)
+        helpAction.triggered.connect(self.show_info)
         
         menubar = self.menuBar()
         menubar.setNativeMenuBar(False)
@@ -574,6 +757,10 @@ class Classifier(QMainWindow):
     def logHistoryWindow(self):
         self.history = LogHistory(parent = self)
         self.history.show()
+        
+    def show_info(self):
+        self.infoWindow = InfoWindow(parent = self)
+        self.infoWindow.show()
         
     
 if __name__ == '__main__':
