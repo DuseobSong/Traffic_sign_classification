@@ -446,7 +446,7 @@ class Classifier(QMainWindow):
         inputMetaBrowseButton.clicked.connect(self.openInputMetadata)
         
         # Set image path
-        labelPath = QLabel('Image path: ', self)
+        labelPath = QLabel('Image folder: ', self)
         labelPath.setGeometry(40, pathY, 140, 20)
         labelPath.setFont(QtGui.QFont('Arial', 10, QtGui.QFont.Bold))
         # labelPath.setStyleSheet('background-color: white; border: 1px solid black;')
@@ -474,7 +474,11 @@ class Classifier(QMainWindow):
         # input image
         self.imW = 300
         self.imH = 300
-        defaultImg = QPixmap('./dataset/no_image.png').scaledToWidth(self.imW)
+        defaultImgPath = './dataset/no_image.png'
+        defaultExist = False
+        if os.path.exists(defaultImgPath):
+            defaultExist = True
+            defaultImg = QPixmap('./dataset/no_image.png').scaledToWidth(self.imW)
         
         inputTitle = QLabel('Input image', self)
         inputTitle.setAlignment(Qt.AlignCenter)
@@ -485,7 +489,8 @@ class Classifier(QMainWindow):
         self.inputIMG = QLabel('', self)
         self.inputIMG.setGeometry(80, imgY + 40, self.imW, self.imH)
         self.inputIMG.setStyleSheet('background-color: white; border: 1px solid black;')
-        self.inputIMG.setPixmap(defaultImg)
+        if defaultExist == True:
+            self.inputIMG.setPixmap(defaultImg)
         
         # prediction: meta image
         outputTitle = QLabel('Prediction', self)
@@ -497,7 +502,8 @@ class Classifier(QMainWindow):
         self.predictionIMG = QLabel('', self)
         self.predictionIMG.setGeometry(520, imgY + 40, self.imW, self.imH)
         self.predictionIMG.setStyleSheet('background-color: white; border: 1px solid black;')
-        self.predictionIMG.setPixmap(defaultImg)
+        if defaultExist == True:
+            self.predictionIMG.setPixmap(defaultImg)
         
         # true and predicted labels
         # true label
