@@ -271,7 +271,7 @@ class InfoWindow(QMainWindow):
         labelLogSaveMsg.setFont(msgSt)
         # labelLogSaveMsg.setStyleSheet(stSheet)
         
-        msg = 'File name format (date and time): YYYYMMDDhhmmss_log.csv'
+        msg = 'File name format (date and time): YYYYMMDDhhmmss_logs.csv'
         labelLogSaveMsg2 = QLabel(msg, self)
         labelLogSaveMsg2.setGeometry(160, logY + 70, 500, 20)
         labelLogSaveMsg2.setFont(msgSt)
