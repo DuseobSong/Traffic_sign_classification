@@ -23,7 +23,7 @@ The goalof this project is to develop an CNN-model for traffic sign classificati
 >> ***1.1 Data preprocessing***  
 >> In order to apply traffic sign images to CNN, all images are resized into (32x32). Hier, we apply [CLAHE(Contrast Limited Adaptive Histogram Equalization)](http://amroamroamro.github.io/mexopencv/opencv/clahe_demo_gui.html) to each image, in order to enhance image contrast.
 >> True-labels of each images can be found in [Train.csv](https://github.com/DuseobSong/Traffic_sign_classification/blob/master/dataset/Train.csv) and [Test.csv](https://github.com/DuseobSong/Traffic_sign_classification/blob/master/dataset/Test.csv) files in dataset folder. 
-These modified images and their true labels are devided into train- and validattion dataset.
+These modified images and their true labels are devided into train- and validation dataset.
 >>  
 >> ***1.2 Build CNN-model***  
 >>If there's no pretrained model, we can generate a CNN-model using the ***build( )*** function of ***Classifier*** class. Hyperparameters, such as number of training epochs, initial learning rate, optimizer and batch size can be customized.  
