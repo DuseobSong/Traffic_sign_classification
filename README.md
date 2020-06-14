@@ -13,7 +13,7 @@ The goalof this project is to develop an CNN-model for traffic sign classificati
 
 ## Development Environment
 > OS: Windows 10 (x64), Python 3.7, OpenCV 4.2.0, Keras (backend: Tensorflow 2.2.0)  
-> Dataset: Dataset: GTSRB – German Traffic Sign Recognition Benchmark [benchmark.ini.rub.de](benchmark.ini.rub.de)
+> Dataset: Dataset: GTSRB – German Traffic Sign Recognition Benchmark [benchmark.ini.rub.de](http://benchmark.ini.rub.de/)
 
 ## Structure
 >  
